@@ -1,1 +1,0 @@
-# precos-pmc-data-lake
