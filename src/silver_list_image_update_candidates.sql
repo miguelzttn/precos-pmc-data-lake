@@ -14,12 +14,7 @@ WITH produtos AS
 )
 SELECT
   p.cd_produto, 
-  (
-    CASE WHEN p.cd_produto > 100000000000 -- IS BAR CODE 
-      THEN CONCAT(p.cd_produto, ' ', p.nm_produto)
-      ELSE REPLACE(REPLACE(p.nm_descricao_original, '-( + ) BARATO ', ''), '-', '')
-    END
-  ) AS query
+  CONCAT('PRODUTO ', REPLACE(REPLACE(p.nm_descricao_original, '-( + ) BARATO ', ''), '-', '')) AS query
 FROM produtos p
 WHERE p.cd_produto NOT IN (
   SELECT pi.cd_produto 
